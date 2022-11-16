@@ -13,23 +13,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const sampleData_json_1 = __importDefault(require("../../sampleData.json"));
-class CountryHandler {
+class CountryControllers {
     constructor(paginationService) {
         this.paginationService = paginationService;
     }
     getCountryList(pageSize, pageNumber) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log('pageSize', pageSize);
-            console.log('pageNumber', pageNumber);
             if (pageSize > 0 && pageNumber > 0) {
-                console.log('yessss');
                 return this.paginationService.page(sampleData_json_1.default, pageSize, pageNumber);
             }
             else {
-                console.log('Noooo');
                 return sampleData_json_1.default;
             }
-            // return pageSize && pageNumber ? this.paginationService.page(sampleData, pageSize, pageNumber) : sampleData;
         });
     }
     getCountryListByName(searchInput) {
@@ -40,5 +35,5 @@ class CountryHandler {
         });
     }
 }
-exports.default = CountryHandler;
+exports.default = CountryControllers;
 //# sourceMappingURL=countryControllers.js.map

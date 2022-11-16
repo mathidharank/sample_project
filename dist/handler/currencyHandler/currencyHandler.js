@@ -13,32 +13,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const sampleData_json_1 = __importDefault(require("../../sampleData.json"));
-class CountryHandler {
-    constructor(paginationService) {
-        this.paginationService = paginationService;
+class CurrencyHandler {
+    constructor() {
     }
-    getCountryList(pageSize, pageNumber) {
+    getAllCurrencyList() {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log('pageSize', pageSize);
-            console.log('pageNumber', pageNumber);
-            if (pageSize > 0 && pageNumber > 0) {
-                console.log('yessss');
-                return this.paginationService.page(sampleData_json_1.default, pageSize, pageNumber);
-            }
-            else {
-                console.log('Noooo');
-                return sampleData_json_1.default;
-            }
-            // return pageSize && pageNumber ? this.paginationService.page(sampleData, pageSize, pageNumber) : sampleData;
+            const CurrencyList = sampleData_json_1.default.map(currencyData => currencyData.currency);
+            return CurrencyList;
+            // return await this.membersDatabaseCommunicator.getAllMembers();
         });
     }
-    getCountryListByName(searchInput) {
+    getCurrencyListByName(searchInput) {
         return __awaiter(this, void 0, void 0, function* () {
-            return sampleData_json_1.default.filter(countryData => {
-                return countryData.name.toLowerCase().includes(searchInput.toLowerCase());
+            return sampleData_json_1.default.filter(currencyData => {
+                return currencyData.currency.name.toLowerCase().includes(searchInput.toLowerCase());
             });
         });
     }
 }
-exports.default = CountryHandler;
-//# sourceMappingURL=countryControllers.js.map
+exports.default = CurrencyHandler;
+//# sourceMappingURL=currencyControllers.js.map

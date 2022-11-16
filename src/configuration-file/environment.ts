@@ -1,3 +1,2 @@
-export class environment { 
-    sendBirthdayWishes = true
+export class environment {
 }
