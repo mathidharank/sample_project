@@ -1,0 +1,1 @@
+{"version":3,"file":"paginationService.js","sourceRoot":"","sources":["../../src/core/paginationService.ts"],"names":[],"mappings":";;AAAA,MAAqB,iBAAiB;IAElC,IAAI,CAAC,KAAU,EAAE,UAAkB,EAAE,QAAgB;QACjD,MAAM,UAAU,GAAG,UAAU,GAAG,QAAQ,CAAC;QACzC,OAAO,KAAK,CAAC,KAAK,CAAC,UAAU,EAAE,UAAU,GAAG,UAAU,CAAC,CAAC;IAC5D,CAAC;CACJ;AAND,oCAMC"}

@@ -8,16 +8,37 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+const sampleData_json_1 = __importDefault(require("../../sampleData.json"));
 class CountryHandler {
-    constructor(membersDatabaseCommunicator) {
-        this.membersDatabaseCommunicator = membersDatabaseCommunicator;
+    constructor(paginationService) {
+        this.paginationService = paginationService;
     }
-    getAllCountryList() {
+    getCountryList(pageSize, pageNumber) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.membersDatabaseCommunicator.getAllMembers();
+            console.log('pageSize', pageSize);
+            console.log('pageNumber', pageNumber);
+            if (pageSize > 0 && pageNumber > 0) {
+                console.log('yessss');
+                return this.paginationService.page(sampleData_json_1.default, pageSize, pageNumber);
+            }
+            else {
+                console.log('Noooo');
+                return sampleData_json_1.default;
+            }
+            // return pageSize && pageNumber ? this.paginationService.page(sampleData, pageSize, pageNumber) : sampleData;
+        });
+    }
+    getCountryListByName(searchInput) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return sampleData_json_1.default.filter(countryData => {
+                return countryData.name.toLowerCase().includes(searchInput.toLowerCase());
+            });
         });
     }
 }
 exports.default = CountryHandler;
-//# sourceMappingURL=countryHandler.js.map
+//# sourceMappingURL=countryControllers.js.map
