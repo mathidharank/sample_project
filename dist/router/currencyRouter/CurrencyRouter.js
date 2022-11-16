@@ -18,7 +18,7 @@ CurrencyRouter.get('/', (request, response) => {
     });
 });
 CurrencyRouter.get('/getCurrencyByName/:currencyName', (request, response) => {
-    const currencyName = request.params.currencyName; // params = {currencyName:"Dollar"}
+    const currencyName = request.params.currencyName;
     const handler = new currencyControllers_1.default();
     return handler.getCurrencyListByName(currencyName).then((result) => {
         response.status(200).send(result);

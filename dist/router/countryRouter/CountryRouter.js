@@ -23,9 +23,9 @@ CountryRouter.get('/', (request, response) => {
 });
 /** Get a country list based on search input  */
 CountryRouter.get('/getCountryByName/:countryName', (request, response) => {
-    const params = request.params.countryName;
+    const countryName = request.params.countryName;
     const handler = new countryControllers_1.default(new paginationService_1.default());
-    return handler.getCountryListByName(params).then((result) => {
+    return handler.getCountryListByName(countryName).then((result) => {
         response.status(200).send(result);
     }).catch((error) => {
         console.error(error.message);
